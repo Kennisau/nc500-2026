@@ -12,22 +12,29 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --highland-dark: #1a1f1c;
-    --highland-green: #2d4a35;
+    --bg: #f4f0eb;
+    --sidebar-bg: #faf7f3;
+    --header-bg: #3a5241;
+    --header-text: #f4f0eb;
+    --text-dark: #2c3329;
+    --text-mid: #5a6358;
+    --text-light: #8a9488;
+    --whisky: #b87333;
+    --whisky-light: #f0e4d4;
     --heather: #7a5c7a;
-    --whisky: #c4873a;
-    --mist: #e8e4de;
-    --slate: #4a5568;
-    --cream: #f5f1eb;
+    --heather-light: #ede6ed;
+    --green: #3a5241;
+    --green-light: #e4ede6;
+    --border: #ddd8d0;
     --route-drive: #3a7a5c;
-    --route-ferry: #c4873a;
+    --route-ferry: #b87333;
     --sidebar-w: 320px;
   }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--highland-dark);
-    color: var(--mist);
+    background: var(--bg);
+    color: var(--text-dark);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,8 +43,7 @@
 
   /* HEADER */
   header {
-    background: var(--highland-dark);
-    border-bottom: 1px solid rgba(196,135,58,0.3);
+    background: var(--header-bg);
     padding: 14px 24px;
     display: flex;
     align-items: center;
@@ -48,15 +54,15 @@
 
   .header-left h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    color: var(--cream);
+    color: var(--header-text);
     letter-spacing: 0.02em;
   }
 
   .header-left p {
-    font-size: 0.72rem;
-    color: rgba(232,228,222,0.55);
+    font-size: 0.68rem;
+    color: rgba(244,240,235,0.6);
     font-weight: 300;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -73,8 +79,8 @@
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 0.7rem;
-    color: rgba(232,228,222,0.65);
+    font-size: 0.68rem;
+    color: rgba(244,240,235,0.75);
     text-transform: uppercase;
     letter-spacing: 0.07em;
   }
@@ -84,17 +90,17 @@
     height: 2px;
   }
 
-  .legend-line.drive { background: var(--route-drive); }
+  .legend-line.drive { background: #6ab891; }
   .legend-line.ferry {
-    background: repeating-linear-gradient(90deg, var(--route-ferry) 0, var(--route-ferry) 6px, transparent 6px, transparent 10px);
+    background: repeating-linear-gradient(90deg, #e8a96a 0, #e8a96a 6px, transparent 6px, transparent 10px);
   }
 
   .legend-dot {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--whisky);
-    border: 2px solid var(--highland-dark);
+    border: 2px solid var(--header-bg);
   }
 
   /* MAIN */
@@ -107,36 +113,38 @@
   /* SIDEBAR */
   .sidebar {
     width: var(--sidebar-w);
-    background: #141917;
-    border-right: 1px solid rgba(196,135,58,0.2);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
     overflow-y: auto;
     flex-shrink: 0;
     scrollbar-width: thin;
-    scrollbar-color: rgba(196,135,58,0.3) transparent;
+    scrollbar-color: var(--border) transparent;
   }
 
   .sidebar::-webkit-scrollbar { width: 4px; }
-  .sidebar::-webkit-scrollbar-thumb { background: rgba(196,135,58,0.3); border-radius: 2px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
   .sidebar-head {
-    padding: 18px 20px 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.65rem;
+    padding: 14px 20px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.62rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: rgba(232,228,222,0.4);
+    color: var(--text-light);
+    background: var(--bg);
   }
 
   .stop {
-    padding: 14px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--border);
     cursor: pointer;
     transition: background 0.15s;
     position: relative;
+    background: var(--sidebar-bg);
   }
 
-  .stop:hover { background: rgba(61,122,92,0.12); }
-  .stop.active { background: rgba(61,122,92,0.2); }
+  .stop:hover { background: var(--green-light); }
+  .stop.active { background: var(--green-light); }
   .stop.active::before {
     content: '';
     position: absolute;
@@ -144,148 +152,139 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: var(--route-drive);
+    background: var(--green);
   }
 
   .stop-date {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--whisky);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-weight: 500;
   }
 
   .stop-name {
     font-family: 'Playfair Display', serif;
     font-size: 0.95rem;
-    color: var(--cream);
+    color: var(--text-dark);
     font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 
   .stop-hotel {
-    font-size: 0.72rem;
-    color: rgba(232,228,222,0.55);
+    font-size: 0.71rem;
+    color: var(--text-mid);
     font-style: italic;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     font-family: 'Playfair Display', serif;
   }
 
   .stop-desc {
-    font-size: 0.68rem;
-    color: rgba(232,228,222,0.4);
+    font-size: 0.67rem;
+    color: var(--text-light);
     line-height: 1.5;
   }
 
   .stop-badge {
     display: inline-block;
-    font-size: 0.58rem;
+    font-size: 0.57rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
     padding: 2px 7px;
     border-radius: 2px;
     margin-top: 5px;
     font-weight: 500;
   }
 
-  .badge-rc {
-    background: rgba(196,135,58,0.15);
-    color: var(--whisky);
-    border: 1px solid rgba(196,135,58,0.3);
+  .badge-special {
+    background: var(--heather-light);
+    color: var(--heather);
+    border: 1px solid rgba(122,92,122,0.25);
   }
 
-  .badge-special {
-    background: rgba(122,92,122,0.2);
-    color: #b59ab5;
-    border: 1px solid rgba(122,92,122,0.3);
+  .badge-ferry {
+    background: var(--whisky-light);
+    color: var(--whisky);
+    border: 1px solid rgba(184,115,51,0.25);
   }
 
   .connector {
-    padding: 8px 20px;
+    padding: 7px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(196,135,58,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
   }
 
-  .connector-line {
-    flex: 1;
-    height: 1px;
-  }
-
-  .connector-line.drive { background: var(--route-drive); opacity: 0.5; }
+  .connector-line { flex: 1; height: 1px; }
+  .connector-line.drive { background: var(--route-drive); opacity: 0.4; }
   .connector-line.ferry {
     background: repeating-linear-gradient(90deg, var(--route-ferry) 0, var(--route-ferry) 5px, transparent 5px, transparent 9px);
+    opacity: 0.6;
   }
 
   .connector-label {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(232,228,222,0.35);
+    letter-spacing: 0.09em;
+    color: var(--text-light);
     white-space: nowrap;
     flex-shrink: 0;
   }
 
-  .connector-label.ferry-label { color: var(--whisky); opacity: 0.8; }
+  .connector-label.ferry-label { color: var(--whisky); }
 
   /* MAP */
-  #map {
-    flex: 1;
-    background: #1a1f1c;
-  }
+  #map { flex: 1; }
 
   /* POPUP */
   .leaflet-popup-content-wrapper {
-    background: #1e2520;
-    border: 1px solid rgba(196,135,58,0.4);
+    background: #fff;
+    border: 1px solid var(--border);
     border-radius: 4px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    color: var(--mist);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    color: var(--text-dark);
   }
 
-  .leaflet-popup-tip { background: #1e2520; }
-  .leaflet-popup-close-button { color: rgba(232,228,222,0.5) !important; }
+  .leaflet-popup-tip { background: #fff; }
 
   .popup-date {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--whisky);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .popup-name {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
-    color: var(--cream);
+    color: var(--text-dark);
     font-weight: 600;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 
   .popup-hotel {
-    font-size: 0.72rem;
-    color: rgba(232,228,222,0.6);
+    font-size: 0.71rem;
+    color: var(--text-mid);
     font-style: italic;
     font-family: 'Playfair Display', serif;
     margin-bottom: 4px;
   }
 
   .popup-notes {
-    font-size: 0.68rem;
-    color: rgba(232,228,222,0.45);
+    font-size: 0.67rem;
+    color: var(--text-light);
     line-height: 1.5;
   }
 
-  /* MOBILE */
   @media (max-width: 640px) {
-    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(196,135,58,0.2); max-height: 40vh; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); max-height: 40vh; }
     .main { flex-direction: column; }
     #map { min-height: 60vh; }
-    header { padding: 10px 16px; }
     .legend { display: none; }
   }
 </style>
@@ -331,7 +330,7 @@ const stops = [
     hotel: "Coul House Hotel",
     lat: 57.5975,
     lng: -4.5423,
-    desc: "Arrive Inverness 5:00pm · 35 min drive to Contin · Whisky bar & fire",
+    desc: "Arrive Inverness 5:00pm · 35 min drive · Whisky bar & fire",
     badges: []
   },
   {
@@ -342,7 +341,7 @@ const stops = [
     hotel: "Shieldaig Lodge",
     lat: 57.7268,
     lng: -5.6803,
-    desc: "Bealach na Bà · Applecross Inn lunch · Glen Torridon drive",
+    desc: "Bealach na Bà · Applecross Inn lunch · Glen Torridon",
     badges: []
   },
   {
@@ -366,7 +365,7 @@ const stops = [
     lng: -2.9605,
     desc: "Smoo Cave · Balnakeil · Strathy Beach · NorthLink ferry Scrabster→Stromness",
     badges: ["ferry"],
-    ferryNote: "NorthLink Ferry: Scrabster → Stromness"
+    ferryNote: "NorthLink Ferry · Scrabster → Stromness"
   },
   {
     id: 4,
@@ -376,7 +375,7 @@ const stops = [
     hotel: "The Lynnfield Hotel",
     lat: 58.9809,
     lng: -2.9605,
-    desc: "Ring of Brodgar · Skara Brae · Maeshowe · Highland Park Distillery · Grey seals at Birsay",
+    desc: "Ring of Brodgar · Skara Brae · Maeshowe · Highland Park · Grey seals at Birsay",
     badges: ["special"]
   },
   {
@@ -387,7 +386,7 @@ const stops = [
     hotel: "Forss House Hotel",
     lat: 58.5936,
     lng: -3.8578,
-    desc: "Italian Chapel · Kirkwall · Ferry return Stromness→Scrabster · Dunnet Head",
+    desc: "Italian Chapel · Kirkwall · Return ferry Stromness→Scrabster · Dunnet Head",
     badges: []
   },
   {
@@ -398,7 +397,7 @@ const stops = [
     hotel: "Royal Marine Hotel",
     lat: 57.9997,
     lng: -3.8553,
-    desc: "Dunrobin Castle · Brora Cashmere mill shop · Wolfburn Distillery · Coastal A9",
+    desc: "Dunrobin Castle · Brora Cashmere · Wolfburn Distillery",
     badges: []
   },
   {
@@ -409,140 +408,126 @@ const stops = [
     hotel: "Rocpool Reserve",
     lat: 57.4778,
     lng: -4.2247,
-    desc: "Chanonry Point · Glenmorangie · The Malt Room whisky tasting · Farewell dinner",
+    desc: "Chanonry Point · Glenmorangie · The Malt Room · Farewell dinner",
     badges: ["special"]
   }
 ];
 
-// Route: full coordinate path counter-clockwise NC500
-// Split into drive segments and ferry segment
 const driveSegment1 = [
-  [57.4778, -4.2247],  // Inverness
-  [57.5975, -4.5423],  // Contin
-  [57.4510, -5.8150],  // Applecross area
-  [57.5268, -5.6803],  // near Shieldaig
-  [57.7268, -5.6200],  // Gairloch
-  [57.9124, -5.1582],  // Poolewe
-  [57.8952, -5.1600],  // Corrieshalloch area
-  [58.0520, -5.1637],  // Ullapool area
-  [58.1636, -5.0363],  // Ardvreck Castle
-  [58.2565, -4.9989],  // Kylesku
-  [58.3968, -5.0012],  // Scourie
-  [58.5678, -4.9980],  // near Durness
-  [58.5650, -4.7234],  // Smoo Cave
-  [58.5680, -4.7000],  // Durness
-  [58.5320, -4.2800],  // Strathy
-  [58.5936, -3.8578],  // Thurso/Scrabster
+  [57.4778, -4.2247],
+  [57.5975, -4.5423],
+  [57.4510, -5.8150],
+  [57.5268, -5.6803],
+  [57.7268, -5.6200],
+  [57.9124, -5.1582],
+  [57.8952, -5.1600],
+  [58.0520, -5.1637],
+  [58.1636, -5.0363],
+  [58.2565, -4.9989],
+  [58.3968, -5.0012],
+  [58.5678, -4.9980],
+  [58.5650, -4.7234],
+  [58.5680, -4.7000],
+  [58.5320, -4.2800],
+  [58.6121, -3.5304],
 ];
 
-// Ferry: Scrabster to Stromness
-const ferrySegment = [
-  [58.6121, -3.5304],  // Scrabster
-  [58.9650, -3.3000],  // mid-Pentland Firth
-  [58.9780, -3.2970],  // Stromness approach
+const ferryOut = [
+  [58.6121, -3.5304],
+  [58.9650, -3.3000],
+  [58.9780, -3.2970],
 ];
 
-// Orkney internal drive
-const orkneySegment = [
-  [58.9780, -3.2970],  // Stromness
-  [58.9970, -3.1700],  // Ring of Brodgar
-  [59.0484, -3.3465],  // Skara Brae
-  [58.9809, -2.9605],  // Kirkwall / Lynnfield
+const orkneyDrive = [
+  [58.9780, -3.2970],
+  [58.9970, -3.1700],
+  [59.0484, -3.3465],
+  [58.9809, -2.9605],
 ];
 
-// Return ferry: Stromness to Scrabster
 const ferryReturn = [
   [58.9780, -3.2970],
   [58.9650, -3.3000],
   [58.6121, -3.5304],
 ];
 
-// East coast return
 const driveSegment2 = [
-  [58.6121, -3.5304],  // Scrabster
-  [58.5936, -3.8578],  // Thurso / Forss House
-  [58.6316, -3.3750],  // Dunnet Head
-  [58.5936, -3.1700],  // John O'Groats area
-  [58.4602, -3.0879],  // Wick
-  [58.3190, -3.1479],  // Lybster
-  [57.9997, -3.8553],  // Brora
-  [57.9760, -3.8900],  // Dunrobin Castle
-  [57.8777, -4.0776],  // Tain / Glenmorangie
-  [57.6402, -4.1400],  // Dingwall / Chanonry area
-  [57.5700, -4.2500],  // Black Isle
-  [57.4778, -4.2247],  // Inverness
+  [58.6121, -3.5304],
+  [58.5936, -3.8578],
+  [58.6316, -3.3750],
+  [58.5936, -3.1700],
+  [58.4602, -3.0879],
+  [57.9997, -3.8553],
+  [57.9760, -3.8900],
+  [57.8777, -4.0776],
+  [57.6402, -4.1400],
+  [57.5700, -4.2500],
+  [57.4778, -4.2247],
 ];
 
-// Marker icon factory
-function makeIcon(color, size = 10) {
+function makeIcon(color, size = 11) {
   return L.divIcon({
     className: '',
-    html: `<div style="
-      width:${size}px;height:${size}px;
-      background:${color};
-      border:2.5px solid #141917;
-      border-radius:50%;
-      box-shadow:0 2px 8px rgba(0,0,0,0.6);
-    "></div>`,
+    html: `<div style="width:${size}px;height:${size}px;background:${color};border:2.5px solid #fff;border-radius:50%;box-shadow:0 1px 6px rgba(0,0,0,0.25);"></div>`,
     iconSize: [size, size],
     iconAnchor: [size/2, size/2]
   });
 }
 
-// Map init — dark tile
 const map = L.map('map', {
-  center: [58.2, -4.0],
+  center: [58.1, -4.2],
   zoom: 6,
   zoomControl: true,
   attributionControl: false
 });
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  maxZoom: 18
+// CartoDB Voyager — warm cream land, clearly distinct blue-grey water
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  maxZoom: 19,
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>'
 }).addTo(map);
 
-L.control.attribution({ prefix: '© OpenStreetMap · © CartoDB' }).addTo(map);
+L.control.attribution({ prefix: false }).addTo(map);
 
-// Draw routes
-L.polyline(driveSegment1, { color: '#3a7a5c', weight: 2.5, opacity: 0.85 }).addTo(map);
-L.polyline(ferrySegment, { color: '#c4873a', weight: 2.5, opacity: 0.85, dashArray: '8, 6' }).addTo(map);
-L.polyline(orkneySegment, { color: '#3a7a5c', weight: 2, opacity: 0.7 }).addTo(map);
-L.polyline(ferryReturn, { color: '#c4873a', weight: 2.5, opacity: 0.85, dashArray: '8, 6' }).addTo(map);
-L.polyline(driveSegment2, { color: '#3a7a5c', weight: 2.5, opacity: 0.85 }).addTo(map);
+// Routes
+L.polyline(driveSegment1, { color: '#3a7a5c', weight: 3, opacity: 0.8 }).addTo(map);
+L.polyline(ferryOut, { color: '#b87333', weight: 2.5, opacity: 0.85, dashArray: '8, 6' }).addTo(map);
+L.polyline(orkneyDrive, { color: '#3a7a5c', weight: 2.5, opacity: 0.7 }).addTo(map);
+L.polyline(ferryReturn, { color: '#b87333', weight: 2.5, opacity: 0.85, dashArray: '8, 6' }).addTo(map);
+L.polyline(driveSegment2, { color: '#3a7a5c', weight: 3, opacity: 0.8 }).addTo(map);
 
-// Ferry midpoint boat icon
-const ferryMid = L.divIcon({
-  className: '',
-  html: `<div style="font-size:16px;line-height:1;">⛴</div>`,
-  iconSize: [20, 20],
-  iconAnchor: [10, 10]
-});
-L.marker([58.80, -3.42], { icon: ferryMid }).addTo(map);
+// Ferry icon
+L.marker([58.80, -3.42], {
+  icon: L.divIcon({
+    className: '',
+    html: `<div style="font-size:15px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.3));">⛴</div>`,
+    iconSize: [20, 20],
+    iconAnchor: [10, 10]
+  })
+}).addTo(map);
 
-// Stop markers + popups
+// Markers
 const markers = [];
 stops.forEach((s, i) => {
-  // Skip duplicate Orkney marker
   if (i === 4) return;
-
-  const color = i === 0 ? '#7a5c7a' : i === 7 ? '#7a5c7a' : '#c4873a';
-  const sz = i === 0 || i === 7 ? 13 : 11;
+  const isEndpoint = i === 0 || i === 7;
+  const color = isEndpoint ? '#3a5241' : '#b87333';
+  const sz = isEndpoint ? 14 : 11;
   const marker = L.marker([s.lat, s.lng], { icon: makeIcon(color, sz) });
 
   const badgeHTML = s.badges.map(b => {
-    if (b === 'rc') return `<span style="display:inline-block;font-size:0.6rem;padding:2px 7px;background:rgba(196,135,58,0.15);border:1px solid rgba(196,135,58,0.4);color:#c4873a;border-radius:2px;margin-top:4px;">Relais & Châteaux</span>`;
-    if (b === 'special') return `<span style="display:inline-block;font-size:0.6rem;padding:2px 7px;background:rgba(122,92,122,0.2);border:1px solid rgba(122,92,122,0.4);color:#b59ab5;border-radius:2px;margin-top:4px;">Special Meal</span>`;
-    if (b === 'ferry') return `<span style="display:inline-block;font-size:0.6rem;padding:2px 7px;background:rgba(196,135,58,0.1);border:1px solid rgba(196,135,58,0.3);color:#c4873a;border-radius:2px;margin-top:4px;">⛴ ${s.ferryNote}</span>`;
+    if (b === 'special') return `<span style="display:inline-block;font-size:0.58rem;padding:2px 7px;background:#ede6ed;border:1px solid rgba(122,92,122,0.25);color:#7a5c7a;border-radius:2px;margin-top:4px;">Special Meal</span>`;
+    if (b === 'ferry') return `<span style="display:inline-block;font-size:0.58rem;padding:2px 7px;background:#f0e4d4;border:1px solid rgba(184,115,51,0.25);color:#b87333;border-radius:2px;margin-top:4px;">⛴ ${s.ferryNote}</span>`;
     return '';
   }).join(' ');
 
   marker.bindPopup(`
-    <div style="min-width:200px;padding:2px">
-      <div class="popup-date">${s.date}</div>
-      <div class="popup-name">${s.name}</div>
-      <div class="popup-hotel">${s.hotel}</div>
-      <div class="popup-notes">${s.desc}</div>
-      ${badgeHTML}
+    <div style="min-width:200px;padding:2px;font-family:'Inter',sans-serif;">
+      <div class="popup-date" style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:#b87333;margin-bottom:3px;">${s.date}</div>
+      <div class="popup-name" style="font-family:'Playfair Display',serif;font-size:1rem;color:#2c3329;font-weight:600;margin-bottom:2px;">${s.name}</div>
+      <div class="popup-hotel" style="font-size:0.71rem;color:#5a6358;font-style:italic;font-family:'Playfair Display',serif;margin-bottom:4px;">${s.hotel}</div>
+      <div class="popup-notes" style="font-size:0.67rem;color:#8a9488;line-height:1.5;">${s.desc}</div>
+      <div style="margin-top:4px;">${badgeHTML}</div>
     </div>
   `, { maxWidth: 260 });
 
@@ -553,27 +538,21 @@ stops.forEach((s, i) => {
 // Sidebar
 const list = document.getElementById('stop-list');
 stops.forEach((s, i) => {
-  // Connector before stop
   if (i > 0) {
-    const isOrkney = (i === 3);
-    const isReturnFerry = (i === 5);
+    const isFerryOut = i === 3;
+    const isFerryBack = i === 5;
     const conn = document.createElement('div');
     conn.className = 'connector';
-
-    let lineClass = 'drive';
-    let label = 'Drive';
-    let labelClass = 'connector-label';
-
-    if (isOrkney) {
+    let lineClass = 'drive', label = 'Drive', labelClass = 'connector-label';
+    if (isFerryOut) {
       lineClass = 'ferry';
-      label = '⛴  NorthLink Ferry · Scrabster → Stromness · ~90 min';
+      label = '⛴  NorthLink Ferry · Scrabster → Stromness';
       labelClass = 'connector-label ferry-label';
-    } else if (isReturnFerry) {
+    } else if (isFerryBack) {
       lineClass = 'ferry';
       label = '⛴  Return Ferry · Stromness → Scrabster';
       labelClass = 'connector-label ferry-label';
     }
-
     conn.innerHTML = `
       <div class="connector-line ${lineClass}"></div>
       <span class="${labelClass}">${label}</span>
@@ -587,8 +566,8 @@ stops.forEach((s, i) => {
   el.dataset.index = i;
 
   const badgeHTML = s.badges.map(b => {
-    if (b === 'rc') return `<span class="stop-badge badge-rc">Relais &amp; Châteaux</span>`;
     if (b === 'special') return `<span class="stop-badge badge-special">Special Meal</span>`;
+    if (b === 'ferry') return `<span class="stop-badge badge-ferry">⛴ Ferry crossing</span>`;
     return '';
   }).join(' ');
 
@@ -603,8 +582,6 @@ stops.forEach((s, i) => {
   el.addEventListener('click', () => {
     document.querySelectorAll('.stop').forEach(x => x.classList.remove('active'));
     el.classList.add('active');
-
-    // Find matching marker
     const found = markers.find(m => m.index === i || (i === 4 && m.index === 3));
     if (found) {
       map.setView([found.stop.lat, found.stop.lng], 9, { animate: true });

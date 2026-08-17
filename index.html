@@ -255,8 +255,14 @@
     font-weight:700;
     font-size:.9rem;
   }
-  .day-photo{
+  .day-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+    gap:10px;
     margin:14px 26px 0;
+  }
+  .day-photo{
+    margin:0;
     border-radius:18px;
     overflow:hidden;
     position:relative;
@@ -264,22 +270,34 @@
   }
   .day-photo img{
     width:100%;
-    height:280px;
+    height:210px;
     object-fit:cover;
     display:block;
   }
   .day-photo figcaption{
     position:absolute;
-    right:10px; bottom:8px;
+    left:8px; right:8px; bottom:6px;
+    display:flex; justify-content:space-between; align-items:flex-end; gap:6px;
+  }
+  .day-photo figcaption .cap-label{
+    background:rgba(43,42,34,.55);
+    color:#fff;
+    font-size:.72rem;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:8px;
   }
   .day-photo figcaption a{
     background:rgba(0,0,0,.5);
     color:#fff;
-    font-size:.7rem;
-    padding:3px 9px;
+    font-size:.65rem;
+    padding:2px 8px;
     border-radius:8px;
     text-decoration:none;
+    white-space:nowrap;
   }
+  .day-gallery.single{grid-template-columns:1fr;}
+  .day-gallery.single .day-photo img{height:280px;}
 
   .day-body{padding:6px 26px 26px;}
   .day-story{font-size:1.05rem; color:#3c3a2c;}
@@ -341,8 +359,9 @@
     .hero h1{font-size:2rem;}
     .day-head{padding:18px 18px 6px;}
     .day-body{padding:4px 18px 20px;}
-    .day-photo{margin:14px 18px 0;}
-    .day-photo img{height:200px;}
+    .day-gallery{margin:14px 18px 0; grid-template-columns:1fr 1fr;}
+    .day-photo img{height:160px;}
+    .day-gallery.single .day-photo img{height:200px;}
   }
 </style>
 </head>
@@ -422,10 +441,16 @@
           <div class="day-date">Saturday, October 3</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Coul_House_Hotel%2C_Contin_%282%29_-_geograph.org.uk_-_5783394.jpg/960px-Coul_House_Hotel%2C_Contin_%282%29_-_geograph.org.uk_-_5783394.jpg" alt="Coul House Hotel, Contin" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Coul_House_Hotel,_Contin_(2)_-_geograph.org.uk_-_5783394.jpg" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Suspension_Bridge_-_geograph.org.uk_-_6574117.jpg/960px-Suspension_Bridge_-_geograph.org.uk_-_6574117.jpg" alt="A footbridge over the River Ness in Inverness" loading="lazy">
+          <figcaption><span class="cap-label">Inverness</span><a href="https://commons.wikimedia.org/wiki/File:Suspension_Bridge_-_geograph.org.uk_-_6574117.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Coul_House_Hotel%2C_Contin_%282%29_-_geograph.org.uk_-_5783394.jpg/960px-Coul_House_Hotel%2C_Contin_%282%29_-_geograph.org.uk_-_5783394.jpg" alt="Coul House Hotel, Contin" loading="lazy">
+          <figcaption><span class="cap-label">Coul House Hotel</span><a href="https://commons.wikimedia.org/wiki/File:Coul_House_Hotel,_Contin_(2)_-_geograph.org.uk_-_5783394.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">Landing at Inverness Airport in the late afternoon, the journey begins with a smooth pickup of the rental car before heading northwest into the quiet countryside of Ross-shire. The drive to Contin is short and scenic, with October's early evening light casting a soft glow over the surrounding hills — a calm, easy start to the week ahead.</p>
         <div class="highlights">
@@ -450,10 +475,20 @@
           <div class="day-date">Sunday, October 4</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bealach_na_Ba_Viewpoint_%2832637651377%29.jpg/960px-Bealach_na_Ba_Viewpoint_%2832637651377%29.jpg" alt="Bealach na Bà mountain pass" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Bealach_na_Ba_Viewpoint_(32637651377).jpg" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Hairpin_bends_on_the_Bealach_na_B%C3%A0_-_geograph.org.uk_-_6878375.jpg/960px-Hairpin_bends_on_the_Bealach_na_B%C3%A0_-_geograph.org.uk_-_6878375.jpg" alt="Hairpin bends climbing the Bealach na Bà mountain pass" loading="lazy">
+          <figcaption><span class="cap-label">Bealach na Bà</span><a href="https://commons.wikimedia.org/wiki/File:Hairpin_bends_on_the_Bealach_na_B%C3%A0_-_geograph.org.uk_-_6878375.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/The_famed_Applecross_Inn_-_geograph.org.uk_-_4500433.jpg" alt="The Applecross Inn overlooking the water to Skye" loading="lazy">
+          <figcaption><span class="cap-label">Applecross Inn</span><a href="https://commons.wikimedia.org/wiki/File:The_famed_Applecross_Inn_-_geograph.org.uk_-_4500433.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Road_through_Glen_Torridon_-_geograph.org.uk_-_3256691.jpg/960px-Road_through_Glen_Torridon_-_geograph.org.uk_-_3256691.jpg" alt="The road winding through Glen Torridon beneath the mountains" loading="lazy">
+          <figcaption><span class="cap-label">Glen Torridon</span><a href="https://commons.wikimedia.org/wiki/File:Road_through_Glen_Torridon_-_geograph.org.uk_-_3256691.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">Today's drive tackles one of Britain's most dramatic roads: Bealach na Bà, or "Pass of the Cattle." Tight hairpin turns climb to over 2,000 feet before opening onto sweeping views across the sea to the Isle of Skye. The descent leads to the coastal hamlet of Applecross for a lunch of ultra-fresh, locally sourced food, then it's north along the coast into the glacial wilderness of Glen Torridon, where ancient sandstone peaks glow in autumn rust and copper tones.</p>
         <div class="highlights">
@@ -478,10 +513,20 @@
           <div class="day-date">Monday, October 5</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ardvreck_Castle_Loch_Assynt.JPG/960px-Ardvreck_Castle_Loch_Assynt.JPG" alt="Ardvreck Castle on Loch Assynt" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Ardvreck_Castle_Loch_Assynt.JPG" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Corrieshalloch_Gorge_-_geograph.org.uk_-_1065622.jpg" alt="The deep, tree-lined Corrieshalloch Gorge" loading="lazy">
+          <figcaption><span class="cap-label">Corrieshalloch Gorge</span><a href="https://commons.wikimedia.org/wiki/File:Corrieshalloch_Gorge_-_geograph.org.uk_-_1065622.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ardvreck_Castle_Loch_Assynt.JPG/960px-Ardvreck_Castle_Loch_Assynt.JPG" alt="Ardvreck Castle on Loch Assynt" loading="lazy">
+          <figcaption><span class="cap-label">Ardvreck Castle</span><a href="https://commons.wikimedia.org/wiki/File:Ardvreck_Castle_Loch_Assynt.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Top_of_the_Wailing_Widow_Fall_-_geograph.org.uk_-_1254179.jpg" alt="The gorge at the top of Wailing Widow Falls" loading="lazy">
+          <figcaption><span class="cap-label">Wailing Widow Falls</span><a href="https://commons.wikimedia.org/wiki/File:Top_of_the_Wailing_Widow_Fall_-_geograph.org.uk_-_1254179.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">North through dramatic geology, past the plunge-pool gorge at Corrieshalloch, to the eerie beauty of Loch Assynt. Here, the 15th-century ruins of Ardvreck Castle sit mirrored in dark water beneath moody autumn skies. A short optional walk leads to Wailing Widow Falls, where water cascades through a sheer limestone canyon. From there, the sweeping Kylesku Bridge carries the route to a characterful, owner-run harbourside inn for the night.</p>
         <div class="highlights">
@@ -506,10 +551,16 @@
           <div class="day-date">Tuesday, October 6</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Old_man_of_hoy.JPG/960px-Old_man_of_hoy.JPG" alt="The Old Man of Hoy sea stack" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Old_man_of_hoy.JPG" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Entrance_to_Smoo_Cave.jpg/960px-Entrance_to_Smoo_Cave.jpg" alt="The entrance to Smoo Cave near Durness" loading="lazy">
+          <figcaption><span class="cap-label">Smoo Cave</span><a href="https://commons.wikimedia.org/wiki/File:Entrance_to_Smoo_Cave.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Queen_Elizabeth_Ferry_Terminal%2C_Pier_and_Berth%2C_Scrabster_Harbour%2C_Scrabster_-_geograph.org.uk_-_3658379.jpg/960px-Queen_Elizabeth_Ferry_Terminal%2C_Pier_and_Berth%2C_Scrabster_Harbour%2C_Scrabster_-_geograph.org.uk_-_3658379.jpg" alt="The ferry terminal at Scrabster Harbour" loading="lazy">
+          <figcaption><span class="cap-label">Ferry to Orkney</span><a href="https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_Ferry_Terminal,_Pier_and_Berth,_Scrabster_Harbour,_Scrabster_-_geograph.org.uk_-_3658379.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">The morning route crosses the rugged northern rim of the mainland toward Durness, stopping at Smoo Cave — a cavernous limestone sea cave lit by natural skylights and fed by an underground waterfall — before browsing handmade chocolates at Cocoa Mountain in Balnakeil Craft Village. The road continues along the dramatic Caithness coastline past the golden sweep of Strathy Beach. By late afternoon, it's on to Scrabster Harbour to board the NorthLink Ferry, a 90-minute crossing to Orkney with twilight views of the sea stack known as the Old Man of Hoy.</p>
         <div class="highlights">
@@ -534,10 +585,20 @@
           <div class="day-date">Wednesday, October 7</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ring_of_Brodgar_-_Orkney.jpg/960px-Ring_of_Brodgar_-_Orkney.jpg" alt="Ring of Brodgar stone circle" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Ring_of_Brodgar_-_Orkney.jpg" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ring_of_Brodgar_-_Orkney.jpg/960px-Ring_of_Brodgar_-_Orkney.jpg" alt="Ring of Brodgar stone circle" loading="lazy">
+          <figcaption><span class="cap-label">Ring of Brodgar</span><a href="https://commons.wikimedia.org/wiki/File:Ring_of_Brodgar_-_Orkney.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Houses_at_Skara_Brae_-_geograph.org.uk_-_985917.jpg" alt="The stone houses of the Neolithic village at Skara Brae" loading="lazy">
+          <figcaption><span class="cap-label">Skara Brae</span><a href="https://commons.wikimedia.org/wiki/File:Houses_at_Skara_Brae_-_geograph.org.uk_-_985917.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Grey_Atlantic_seal_on_SPM_No._1%2C_Scapa_Flow%2C_Orkney_-_geograph.org.uk_-_4186980.jpg/960px-Grey_Atlantic_seal_on_SPM_No._1%2C_Scapa_Flow%2C_Orkney_-_geograph.org.uk_-_4186980.jpg" alt="A grey seal resting on rocks in Orkney waters" loading="lazy">
+          <figcaption><span class="cap-label">Grey Seals</span><a href="https://commons.wikimedia.org/wiki/File:Grey_Atlantic_seal_on_SPM_No._1,_Scapa_Flow,_Orkney_-_geograph.org.uk_-_4186980.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">A full day dedicated to Orkney's UNESCO World Heritage sites: the massive standing stones of the Ring of Brodgar and nearby Stones of Stenness, the 5,000-year-old subterranean village of Skara Brae, and the chambered tomb of Maeshowe. In the afternoon, the cliffs at Birsay and Point of Buckquoy come alive with Orkney's grey seal colony — October marks peak pupping season, with mother seals and pups along the rocky coves. The day wraps with a tasting at Highland Park Distillery and dinner in Kirkwall.</p>
         <div class="highlights">
@@ -562,10 +623,20 @@
           <div class="day-date">Thursday, October 8</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Italian_Chapel_orkney.JPG/960px-Italian_Chapel_orkney.JPG" alt="The Italian Chapel, Orkney" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Italian_Chapel_orkney.JPG" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Italian_Chapel_orkney.JPG/960px-Italian_Chapel_orkney.JPG" alt="The Italian Chapel, Orkney" loading="lazy">
+          <figcaption><span class="cap-label">The Italian Chapel</span><a href="https://commons.wikimedia.org/wiki/File:Italian_Chapel_orkney.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/St_Magnus_Cathedral_Kirkwall.jpg/960px-St_Magnus_Cathedral_Kirkwall.jpg" alt="St Magnus Cathedral in Kirkwall" loading="lazy">
+          <figcaption><span class="cap-label">St Magnus Cathedral</span><a href="https://commons.wikimedia.org/wiki/File:St_Magnus_Cathedral_Kirkwall.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dunnet_Head_lighthouse_2016.JPG/960px-Dunnet_Head_lighthouse_2016.JPG" alt="The lighthouse at Dunnet Head" loading="lazy">
+          <figcaption><span class="cap-label">Dunnet Head</span><a href="https://commons.wikimedia.org/wiki/File:Dunnet_Head_lighthouse_2016.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">The final Orkney morning starts at the Italian Chapel on Lamb Holm — a beautifully hand-crafted sanctuary built from Nissen huts by Italian prisoners of war during WWII. From there, a stroll through Kirkwall takes in the towering red sandstone of St Magnus Cathedral and the town's craft galleries. By late afternoon, the return ferry carries the route back to Scrabster, with a possible sunset detour to Dunnet Head — the northernmost point of mainland Britain.</p>
         <div class="highlights">
@@ -590,10 +661,16 @@
           <div class="day-date">Friday, October 9</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dunrobin_Castle_-Sutherland_-Scotland-26May2008_%282%29.jpg/960px-Dunrobin_Castle_-Sutherland_-Scotland-26May2008_%282%29.jpg" alt="Dunrobin Castle" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Dunrobin_Castle_-Sutherland_-Scotland-26May2008_(2).jpg" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Wolfburn_stills_lacquered_low_res.jpg/960px-Wolfburn_stills_lacquered_low_res.jpg" alt="The copper pot stills at Wolfburn Distillery" loading="lazy">
+          <figcaption><span class="cap-label">Wolfburn Distillery</span><a href="https://commons.wikimedia.org/wiki/File:Wolfburn_stills_lacquered_low_res.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dunrobin_Castle_-Sutherland_-Scotland-26May2008_%282%29.jpg/960px-Dunrobin_Castle_-Sutherland_-Scotland-26May2008_%282%29.jpg" alt="Dunrobin Castle" loading="lazy">
+          <figcaption><span class="cap-label">Dunrobin Castle</span><a href="https://commons.wikimedia.org/wiki/File:Dunrobin_Castle_-Sutherland_-Scotland-26May2008_(2).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">The morning begins at Wolfburn, mainland Scotland's northernmost distillery, with a look inside the still house and maturation warehouse followed by a guided tasting. From there, the route follows the dramatic east coast of Sutherland down to Dunrobin Castle — the fairytale-turreted ancestral seat of the Earls of Sutherland, with formal French-inspired gardens overlooking the Moray Firth.</p>
         <div class="highlights">
@@ -617,10 +694,12 @@
           <div class="day-date">Saturday, October 10</div>
         </div>
       </div>
-      <figure class="day-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bottlenose_dolphin_with_young.JPG/960px-Bottlenose_dolphin_with_young.JPG" alt="Bottlenose dolphin at Chanonry Point" loading="lazy">
-        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Bottlenose_dolphin_with_young.JPG" target="_blank" rel="noopener">Photo via Wikimedia Commons</a></figcaption>
-      </figure>
+      <div class="day-gallery single">
+        <figure class="day-photo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Bottlenose_dolphin_with_young.JPG/960px-Bottlenose_dolphin_with_young.JPG" alt="Bottlenose dolphin at Chanonry Point" loading="lazy">
+          <figcaption><span class="cap-label">Chanonry Point</span><a href="https://commons.wikimedia.org/wiki/File:Bottlenose_dolphin_with_young.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption>
+        </figure>
+      </div>
       <div class="day-body">
         <p class="day-story">A morning drive through the Black Isle leads to Chanonry Point, one of the best places in Europe to spot wild bottlenose dolphins feeding close to shore as the tide turns. The route loops back into Inverness for a final night, capped with a farewell dinner and a tasting flight at The Malt Room, a hidden, wood-panelled whisky bar in the city centre.</p>
         <div class="highlights">
